@@ -28,6 +28,8 @@ public sealed interface Slice<T> permits Slice.ArraySlice, Slice.SubArraySlice {
   int size();
   T get(int index);
 
+  Slice<T> subSlice(int from, int to);
+
   final class ArraySlice<E> implements Slice<E> {
     private final int from;
     private final int to;
@@ -49,6 +51,17 @@ public sealed interface Slice<T> permits Slice.ArraySlice, Slice.SubArraySlice {
         throw new IndexOutOfBoundsException();
       }
       return tab[index];
+    }
+
+    @Override
+    public Slice<E> subSlice(int from, int to) {
+      if (from < this.from || from > size() || from > to) {
+        throw new IndexOutOfBoundsException();
+      }
+      if (to > this.to || to > size()) {
+        throw new IndexOutOfBoundsException();
+      }
+      return new SubArraySlice<>(this.tab, from, to);
     }
 
     @Override
@@ -82,6 +95,14 @@ public sealed interface Slice<T> permits Slice.ArraySlice, Slice.SubArraySlice {
         throw new IndexOutOfBoundsException();
       }
       return tab[index + from];
+    }
+
+    @Override
+    public Slice<E> subSlice(int from, int to) {
+      if (this.from + from < this.from || this.from + to > this.to || from > to) {
+        throw new IndexOutOfBoundsException();
+      }
+      return new SubArraySlice<>(this.tab, this.from + from,this.from + to);
     }
 
     @Override
