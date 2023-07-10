@@ -84,7 +84,6 @@ public class TabTest {
 
   // Q2
 
-  /*
   @Test @Tag("Q2")
   public void testVectorToString() {
     var vector1 = Tab.vector(1, 2, 3, 4);
@@ -101,7 +100,6 @@ public class TabTest {
 
 
   // Q3
-
   @Test  @Tag("Q3")
   public void matrix() {
     Tab<Integer> matrix1 = Tab.matrix(2, 3, 1, 2, 3, 4, 5, 6);
@@ -220,6 +218,7 @@ public class TabTest {
 
   // Q4
 
+
   @Test @Tag("Q4")
   public void testMatrixToString() {
     var matrix1 = Tab.matrix(2, 3, 1, 2, 3, 4, 5, 6);
@@ -235,6 +234,7 @@ public class TabTest {
   }
 
 
+  /*
   @Test  @Tag("Q5")
   public void applyVectorIntegersSum() {
     var vector1 = Tab.vector(1, 2, 3, 4, 5, 6);

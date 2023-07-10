@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="slice" />
         <module name="ymca" />
+        <module name="examen" />
         <module name="sed" />
+        <module name="slice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
